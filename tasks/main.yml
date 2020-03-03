@@ -3,3 +3,11 @@
 
 ## VIOS Tasks
   - import_tasks: vios/vios_largesend.yml
+  - import_tasks: vios/vios_large_receive.yml
+  - import_tasks: vios/vios_max_buf_huge.yml
+  - import_tasks: vios/vios_max_buf_large.yml
+  - import_tasks: vios/vios_max_buf_medium.yml
+  - import_tasks: vios/vios_min_buf_huge.yml
+  - import_tasks: vios/vios_min_buf_large.yml
+  - import_tasks: vios/vios_min_buf_medium.yml
+  - import_tasks: vios/vios_timeout_policy.yml
