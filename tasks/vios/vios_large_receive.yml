@@ -1,0 +1,12 @@
+      - name: large_receive on Shared Ethernet Adapter
+        shell:
+          cmd: lsdev | grep "Shared Ethernet Adapter" | awk '{print $1}' | xargs -I % sh -c '{ echo %; lsattr -El %; }'  | awk '/ent/ { if (flag == "0" ) {tmpent=$1; flag=1}} flag && /large_receive/ && !/{{vios_large_receive}}/ {print tmpent,$1,$2; flag=0}'
+        register: command_output      
+        when: ansible_distribution == 'AIX'
+        changed_when: False
+        tags: vios_large_receive
+
+      - debug: 
+          var=command_output.stdout_lines
+        when: command_output.stdout_lines
+        tags: vios_large_receive

@@ -1,0 +1,14 @@
+---
+# defaults file for ./healthcheck_vios
+
+#VIOS Vars
+
+      vios_var_min_buf_medium: "1024"
+      vios_var_max_buf_medium: "1024"
+      vios_var_min_buf_large: "128"
+      vios_var_max_buf_large: "128"
+      vios_var_min_buf_huge: "96"
+      vios_var_max_buf_huge: "96"
+      vios_var_largesend: "1" #SEA Large Send
+      vios_var_large_receive: "yes" #SEA Large Receive
+      vios_var_timeout_policy: "fail_path" #Hdisk Timeout Policy

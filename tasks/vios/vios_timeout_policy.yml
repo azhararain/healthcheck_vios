@@ -1,0 +1,13 @@
+      - name: Hdisk timeout_policy on VIOS
+        shell:
+          chdir: /dev
+          cmd: ls hdisk* | xargs -I % sh -c '{ echo %; lsattr -El %; }' | awk '/hdisk/ {tmphdisk=$1; flag=1; next} flag && /timeout_policy/ && !/{{var_vios_var_timeout_policy}}/ {print tmphdisk,$1,$2; flag=0}'
+        register: command_output      
+        when: ansible_distribution == 'AIX'
+        changed_when: False
+        tags: vios_timeout_policy
+
+      - debug: 
+          var=command_output.stdout_lines
+        when: command_output.stdout_lines
+        tags: vios_timeout_policy
