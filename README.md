@@ -6,7 +6,9 @@ HEALTHCHECK_VIOS role is designed to check values of various VIOS parameters aga
 Requirements
 ------------
 
-This role is only for IBM VIOS.
+This role is only for IBM VIOS. This role uses "raw" module as it VIOS does not have Python installed therefore Python is NOT required for this role.
+
+Create an "ansible" user on the VIOS or any other user. padmin user cannot be used.
 
 Role Variables
 --------------
