@@ -1,10 +1,10 @@
       - name: largesend on Shared Ethernet Adapter
-        raw: lsdev | grep "Shared Ethernet Adapter" | awk '{print $1}' | xargs -I % sh -c '{ echo %; lsattr -El %; }'  | awk '/ent/ { if (flag == "0" ) {tmpent=$1; flag=1}} flag && /largesend/ && !/{{ vios_var_largesend }}/ {print tmpent,$1,$2; flag=0}'
-        register: command_output      
+        raw: lsdev | grep "Shared Ethernet Adapter" | awk '{print $1}' | xargs -I % sh -c '{ echo %; lsattr -El %; }'  | awk '/ent/ { if (flag == "0" ) {tmpent=$1; flag=1 }} flag && /largesend/ && !/{{ vios_var_largesend }}/ {print tmpent,$1,$2; flag=0}'
+        register: command_output
         changed_when: False
         tags: vios_largesend
 
-      - debug: 
+      - debug:
           var=command_output.stdout_lines
         when: command_output.stdout_lines
         tags: vios_largesend

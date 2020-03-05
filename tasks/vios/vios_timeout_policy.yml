@@ -4,7 +4,7 @@
         changed_when: False
         tags: vios_timeout_policy
 
-      - debug: 
+      - debug:
           var=command_output.stdout_lines
         when: command_output.stdout_lines
         tags: vios_timeout_policy
