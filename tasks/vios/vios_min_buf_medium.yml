@@ -1,5 +1,5 @@
       - name: Network min_buf_medium
-        raw: lsdev | grep "Virtual I/O Ethernet Adapter" | awk '{print $1}' | xargs -I % sh -c '{ echo %; lsattr -El %; }' | awk '/ent/ { if (flag == "0" ) {tmpent=$1; flag=1}} flag && /min_buf_medium/ && !/{{vios_var_min_buf_medium}}/ {print tmpent,$1,$2; flag=0}'
+        raw: lsdev | grep "Virtual I/O Ethernet Adapter" | awk '{print $1}' | xargs -I % sh -c '{ echo %; lsattr -El %; }' | awk '/ent/ { if (flag == "0" ) {tmpent=$1; flag=1}} flag && /min_buf_medium/ && !/{{ vios_var_min_buf_medium }}/ {print tmpent,$1,$2; flag=0}'
         register: command_output
         changed_when: False
         tags: vios_min_buf_medium

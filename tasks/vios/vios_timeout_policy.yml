@@ -1,5 +1,5 @@
       - name: Hdisk timeout_policy on VIOS
-        raw: lspv | awk '{print $1}' | xargs -I % sh -c '{ echo %; lsattr -El %; }' | awk '/hdisk/ {tmphdisk=$1; flag=1; next} flag && /timeout_policy/ && !/{{vios_var_timeout_policy}}/ {print tmphdisk,$1,$2; flag=0}'
+        raw: lspv | awk '{print $1}' | xargs -I % sh -c '{ echo %; lsattr -El %; }' | awk '/hdisk/ {tmphdisk=$1; flag=1; next} flag && /timeout_policy/ && !/{{ vios_var_timeout_policy }}/ {print tmphdisk,$1,$2; flag=0}'
         register: command_output
         changed_when: False
         tags: vios_timeout_policy
